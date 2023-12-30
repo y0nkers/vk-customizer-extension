@@ -1,0 +1,21 @@
+{
+  "name": "VK Customizer",
+  "version": "1.0",
+  "manifest_version": 3,
+  "description": "Скрытие рекламы и некоторых не очень полезных пунктов на сайте ВКонтакте",
+  "background": {
+    "service_worker": "/assets/js/background.js"
+  },
+  "permissions": ["activeTab", "storage", "scripting"],
+  "action": {
+    "default_popup": "/popup.html"
+  },
+  "content_scripts": [
+    {
+      "matches": ["https://vk.com/*"],
+      "js": ["/assets/js/content.js"],
+      "run_at": "document_start"
+    }
+  ],
+  "options_page": "/options.html"
+}
